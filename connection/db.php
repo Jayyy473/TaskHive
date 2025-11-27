@@ -4,7 +4,7 @@ $port = 17199;
 $user = "avnadmin";
 $pass = "AVNS_ttME4P816txlP2F5mVY";
 $dbname = "TaskHive";
-$ssl_ca = __DIR__ . '/ca.pem';
+$ssl_ca = __DIR__ . 'connection/ca.pem';
 
 // Initialize MySQL connection
 $conn = mysqli_init();
