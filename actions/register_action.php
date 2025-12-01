@@ -6,7 +6,7 @@ $email = trim($_POST['email']);
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 // Check if username or email already exists
-$check = $link->prepare("SELECT userID FROM Users WHERE userName = ? OR email = ?");
+$check = $conn->prepare("SELECT userID FROM Users WHERE userName = ? OR email = ?");
 $check->bind_param("ss", $username, $email);
 $check->execute();
 $result = $check->get_result();

@@ -8,12 +8,12 @@ $dbname = getenv('Aiven_DB');
 $ssl_ca = __DIR__ . '/ca.pem';
 
 // Initialize MySQL connection
-$link = mysqli_init();
-mysqli_ssl_set($link, NULL, NULL, $ssl_ca, NULL, NULL);
+$conn = mysqli_init();
+mysqli_ssl_set($conn, NULL, NULL, $ssl_ca, NULL, NULL);
 
 // Connect using SSL
 if (!mysqli_real_connect(
-        $link,
+        $conn,
         $host,
         $username,
         $password,
