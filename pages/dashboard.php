@@ -156,7 +156,6 @@ $tasks = mysqli_query($conn, $query);
             <!-- ACTIONS -->
             <div class="task-actions">
                 <a class="btn" href="edit_task.php?id=<?= $row['taskID']; ?>">Edit</a>
-                <br>
                 <a class="btn" href="../actions/delete_task.php?id=<?= $row['taskID']; ?>">Delete</a>
             </div>
 
