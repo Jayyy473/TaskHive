@@ -8,6 +8,7 @@
 <body>
 
 <div class="glass" style="width:450px;margin:120px auto;">
+    <div style="text-align:center;">
     <h2>Welcome Back 👋</h2>
 
     <?php if (isset($_GET['success'])): ?>
@@ -21,14 +22,17 @@
     <form action="../actions/login_action.php" method="POST">
         <label>Username</label>
         <input required type="text" name="username">
-
+        <br>
+        <br>
         <label>Password</label>
         <input required type="password" name="password">
-
+        <br>
+        <br>
         <button class="btn" type="submit">Login</button>
     </form>
 
     <p>Don’t have an account? <a href="register.php">Register</a></p>
+    </div>
 </div>
 
 </body>
