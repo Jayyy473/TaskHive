@@ -5,7 +5,7 @@ $port = getenv('Aiven_Port');
 $username = getenv('Aiven_User');
 $password = getenv('Aiven_Pass');
 $dbname = getenv('Aiven_DB');
-$ssl_ca = __DIR__ . './ca.pem';
+$ssl_ca = __DIR__ . '/ca.pem';
 
 // Initialize MySQL connection
 $link = mysqli_init();
