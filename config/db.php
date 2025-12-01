@@ -5,12 +5,22 @@ $port = getenv('Aiven_Port');
 $username = getenv('Aiven_User');
 $password = getenv('Aiven_Pass');
 $dbname = getenv('Aiven_DB');
-$ssl_ca = __DIR__ . '/ca.pem'; 
+$ssl_ca = __DIR__ . '/ca.pem';
 
-$conn = mysqli_init();
-mysqli_ssl_set($conn, NULL, NULL, $ssl_ca, NULL, NULL);
+// Initialize MySQL connection
+$link = mysqli_init();
+mysqli_ssl_set($link, NULL, NULL, $ssl_ca, NULL, NULL);
 
-if (!mysqli_real_connect($conn, $host, $username, $password, $dbname, $port, NULL, MYSQLI_CLIENT_SSL)) {
+// Connect using SSL
+if (!mysqli_real_connect(
+        $link,
+        $host,
+        $username,
+        $password,
+        $dbname,
+        $port,
+        NULL,
+        MYSQLI_CLIENT_SSL
+    )) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
-}
-?>
+}?>
