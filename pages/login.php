@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div class="glass" style="width:450px;margin:120px auto;">
+<div class="glass auth-card">
     <div style="text-align:center;">
     <h2>Welcome Back 👋</h2>
 

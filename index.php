@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div class="glass" style="width:420px;margin:120px auto;text-align:center;">
+<div class="glass main-page">
     <h1>🐝 TaskHive</h1>
     <p>Organize your day the smart way.</p>
     <a href="../pages/login.php"><button class="btn">Login</button></a>

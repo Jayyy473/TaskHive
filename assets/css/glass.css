@@ -34,6 +34,20 @@ h1, h2, h3 {
     padding: 30px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
     transition: 0.3s;
+    /* Base center alignment for all glass cards */
+    margin: 120px auto; /* Default margin for desktop */
+    box-sizing: border-box; /* Crucial for responsive padding */
+}
+
+/* Specific styling for the initial index.php card */
+.glass.main-page {
+    width: 420px;
+    text-align: center;
+}
+
+/* Specific styling for the login/register cards */
+.glass.auth-card {
+    width: 450px;
 }
 
 .glass:hover {
@@ -41,6 +55,19 @@ h1, h2, h3 {
     box-shadow: 0 16px 32px rgba(0,0,0,0.30);
 }
 
+/* Base Form Inputs - Ensuring they take full width of the card */
+input[type="text"], 
+input[type="email"], 
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.45);
+    color: #000;
+    font-size: 15px;
+    box-sizing: border-box; /* Makes padding part of the width */
+}
 
 /* -------------------------------------------------------
    BUTTONS
@@ -202,71 +229,78 @@ h1, h2, h3 {
     margin-top: 20px;
 }
 
+/* TASK CARD MATCHING TIMELINE STYLE */
 .task-card {
     display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    padding: 18px;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    background: rgba(255, 255, 255, 0.18);
+    gap: 18px;
+    padding: 22px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(18px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.22);
     transition: 0.25s ease;
-    overflow: hidden;
-    word-break: normal;
+    cursor: pointer;
 }
 
 .task-card:hover {
     transform: scale(1.02);
-    background: rgba(255, 255, 255, 0.27);
+    background: rgba(255, 255, 255, 0.32);
 }
 
-/* PRIORITY BULLETS */
+/* PRIORITY BULLET — MATCHES TIMELINE */
 .priority-bullet {
     width: 18px;
     height: 18px;
     border-radius: 50%;
+    flex-shrink: 0;
     margin-top: 5px;
     box-shadow: 0 0 12px currentColor;
 }
 
-.priority-bullet.none { background: gray; }
 .priority-bullet.low { background: #8bc34a; }
 .priority-bullet.medium { background: #ffc107; }
 .priority-bullet.high { background: #ff5252; }
+.priority-bullet.none { background: #777; }
 
-/* CONTENT */
-.task-content h3 {
+/* CONTENT (MATCHES TIMELINE EXACTLY) */
+.task-content {
+    flex: 1;
     text-align: center;
+}
+
+.task-content h3 {
     margin: 0;
-    color: #000;
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
 }
 
 .task-content p {
-    text-align: center;
-    margin: 6px 0;
-    color: #000;
-    white-space: normal;        
-    overflow-wrap: anywhere;     
-    word-wrap: break-word;       
-    word-break: break-word;      
-    max-width: 100%;
+    margin: 8px 0;
+    font-size: 15px;
+    color: black;
+    white-space: normal;
+    overflow-wrap: break-word;
 }
 
-/* TAGS */
+/* TAGS — SAME AS TIMELINE */
+.tags {
+    margin-top: 6px;
+}
+
 .tag {
     display: inline-block;
-    padding: 4px 9px;
-    margin-right: 8px;
-    font-size: 12px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
+    padding: 5px 12px;
+    font-size: 13px;
+    border-radius: 12px;
     color: white;
+    margin-right: 8px;
+    backdrop-filter: blur(6px);
 }
 
 .priority-high { background: #ff5252cc; }
-.priority-medium { background: #ffc107cc; color: black; }
+.priority-medium { background: #ffc107cc; color:black; }
 .priority-low { background: #8bc34acc; }
 .priority-none { background: #777; }
 
@@ -274,24 +308,18 @@ h1, h2, h3 {
 .status-current { background: #2196f3cc; }
 .status-pending-start { background: #9e9e9ecc; }
 
-/* BUTTONS */
-
-/* Stack the action buttons vertically */
+/* ACTION BUTTONS — NOW VERTICAL AND MINIMAL */
 .task-actions {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    flex: 0 0 auto;
-    justify-content: flex-start;
-    align-items: flex-start;      /* keeps them aligned left */
+    justify-content: center;
 }
 
 .task-actions .btn {
-    align-items: right;
-    margin-left: 10px;
-    text-decoration: none;
+    padding: 8px 18px !important;
+    font-size: 14px;
 }
-
 
 /* -------------------------------------------------------
    RESPONSIVE RESPONSIVE RESPONSIVE
@@ -310,22 +338,90 @@ h1, h2, h3 {
     }
 }
 
+/* --- TABLET (MAX-WIDTH: 768px) --- */
 @media (max-width: 768px) {
-    .page-container { width: 90%; }
+    /* Use for tablets and large phones in landscape */
 
-    .add-task-form {
-        grid-template-columns: 1fr;
+    .page-container { 
+        width: 90%; 
     }
 
-    .task-header {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
+    /* Reduce default top margin, but keep card width relatively large */
+    .glass {
+        margin: 80px auto; /* Reduced top margin for better viewing */
+    }
+
+    /* Make authentication cards slightly narrower but responsive */
+    .glass.auth-card {
+        width: 80%; /* Takes up 80% of the viewport width */
+        max-width: 400px; /* But doesn't get too wide on landscape tablets */
+    }
+
+    /* The index page card */
+    .glass.main-page {
+        width: 70%;
+        max-width: 350px;
+    }
+
+    .glass.settings-card {
+        width: 60%; 
+        max-width: 400px;
+        margin: 60px auto;
     }
 }
 
+
+/* --- MOBILE (MAX-WIDTH: 480px) --- */
 @media (max-width: 480px) {
-    .glass { padding: 18px; }
+    /* Use for phones */
+
+    .page-container { 
+        width: 95%; /* Use more width on small screens */
+        margin: 20px auto; /* Reduced margin */
+    }
+
+    .glass { 
+        padding: 18px; /* Less padding to save space */
+        margin: 40px auto; /* Significantly reduced top margin for content visibility */
+    }
+
+    /* The index page card (TaskHive landing) */
+    .glass.main-page {
+        width: 90%; /* Near full-width for mobile */
+        max-width: none; /* Remove the max-width restriction for small screens */
+        padding-bottom: 25px; /* Add bottom spacing */
+    }
+
+    /* Authentication cards (Login/Register) */
+    .glass.auth-card {
+        width: 90%; /* Near full-width for mobile */
+        max-width: none;
+        padding: 25px 20px;
+    }
     
-    .btn { padding: 10px 18px; }
+    /* Center the form elements more cleanly */
+    .glass.auth-card > div {
+        padding: 0;
+    }
+
+    /* Style for the buttons on the landing page to stack nicely */
+    .glass.main-page a {
+        display: block; /* Make the anchor tags block-level */
+        margin: 10px auto; /* Add vertical space between buttons */
+        width: 80%; /* Make buttons full width relative to the card */
+        max-width: 250px;
+    }
+
+    /* Settings Card Override for Mobile */
+    .glass.settings-card {
+        width: 90%; 
+        max-width: none; 
+        margin: 30px auto; /* Very small top margin */
+        padding: 25px 20px;
+    }
+    
+    /* Ensure input field fits well */
+    .settings-form input[type="text"] {
+        max-width: 100%; /* Allows input to stretch across the card */
+    }
 }
