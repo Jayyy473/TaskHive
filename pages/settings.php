@@ -42,22 +42,6 @@ if (!isset($_SESSION['userID'])) {
 
         <hr style="width: 80%; margin: 30px auto; border-top: 1px solid rgba(0,0,0,0.2);">
 
-        <h3>Change Password</h3>
-        <form action="../actions/update_profile.php" method="POST" class="settings-form">
-            <label for="oldPassword">Current Password</label>
-            <input id="oldPassword" type="password" name="oldPassword" required>
-            
-            <label for="newPassword">New Password</label>
-            <input id="newPassword" type="password" name="newPassword" required>
-
-            <label for="confirmPassword">Confirm New Password</label>
-            <input id="confirmPassword" type="password" name="confirmPassword" required>
-
-            <button class="btn" type="submit" name="action" value="update_password">Change Password</button>
-        </form>
-        
-        <hr style="width: 80%; margin: 30px auto; border-top: 1px solid rgba(0,0,0,0.2);">
-
         <h3>Danger Zone</h3>
         <div style="margin-top: 20px; text-align: center;">
             <p style="font-size: 14px; color: #a00;">Permanently delete your TaskHive account and all associated data.</p>

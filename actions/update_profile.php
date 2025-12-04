@@ -58,62 +58,8 @@ if ($action === 'update_username') {
     mysqli_stmt_close($stmt_check);
     mysqli_stmt_close($stmt_update);
 } 
-
 // -----------------------------------------------------
-// ACTION 2: UPDATE PASSWORD
-// -----------------------------------------------------
-elseif ($action === 'update_password') {
-    $oldPassword = $_POST['oldPassword'] ?? '';
-    $newPassword = $_POST['newPassword'] ?? '';
-    $confirmPassword = $_POST['confirmPassword'] ?? '';
-
-    // Basic Validation
-    if (empty($oldPassword) || empty($newPassword) || empty($confirmPassword)) {
-        $_SESSION['error_message'] = "All password fields are required.";
-        header("Location: ../pages/settings.php");
-        exit();
-    }
-
-    if ($newPassword !== $confirmPassword) {
-        $_SESSION['error_message'] = "New password and confirmation password do not match.";
-        header("Location: ../pages/settings.php");
-        exit();
-    }
-    
-    // 1. Retrieve the current hashed password from the database
-    $stmt_fetch = mysqli_prepare($conn, "SELECT password FROM Users WHERE userID = ?");
-    mysqli_stmt_bind_param($stmt_fetch, "i", $userID);
-    mysqli_stmt_execute($stmt_fetch);
-    mysqli_stmt_bind_result($stmt_fetch, $hashedPassword);
-    mysqli_stmt_fetch($stmt_fetch);
-    mysqli_stmt_close($stmt_fetch);
-
-    // 2. Verify the old password
-    if (!password_verify($oldPassword, $hashedPassword)) {
-        $_SESSION['error_message'] = "Current password is incorrect.";
-        header("Location: ../pages/settings.php");
-        exit();
-    }
-    
-    // 3. Hash the new password securely
-    $newHashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-    
-    // 4. Update the password in the database
-    $stmt_update = mysqli_prepare($conn, "UPDATE Users SET password = ? WHERE userID = ?");
-    mysqli_stmt_bind_param($stmt_update, "si", $newHashedPassword, $userID);
-    
-    if (mysqli_stmt_execute($stmt_update)) {
-        $_SESSION['success_message'] = "Password updated successfully! You will need to log back in next time.";
-        // Optional: Force a log out for immediate security: session_destroy(); header("Location: ../pages/login.php"); exit();
-    } else {
-        $_SESSION['error_message'] = "Error updating password: " . mysqli_error($conn);
-    }
-    
-    mysqli_stmt_close($stmt_update);
-}
-
-// -----------------------------------------------------
-// ACTION 3: DELETE ACCOUNT
+// ACTION 2: DELETE ACCOUNT
 // -----------------------------------------------------
 elseif ($action === 'delete_account') {
     // 1. You should normally require the user's password here for security,
