@@ -17,7 +17,7 @@ if (isset($_SESSION['register_error'])) {
 </head>
 <body>
 
-<div class="glass" style="width:450px;margin:120px auto;">
+<div class="glass auth-card">
     
     <div style="text-align:center;">
     <h2>Create an Account</h2>
