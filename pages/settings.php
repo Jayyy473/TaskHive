@@ -61,9 +61,13 @@ if (!isset($_SESSION['userID'])) {
         <h3>Danger Zone</h3>
         <div style="margin-top: 20px; text-align: center;">
             <p style="font-size: 14px; color: #a00;">Permanently delete your TaskHive account and all associated data.</p>
-            <button class="btn" style="background: #ff5252cc; color: white; border: 1px solid red; font-weight: 700;">
-                Delete Account
-            </button>
+            <form action="../actions/update_profile.php" method="POST" onsubmit="return confirm('Are you absolutely sure you want to delete your account? This action cannot be undone.');">
+                <input type="hidden" name="action" value="delete_account">
+                <button class="btn" type="submit" style="background: #ff5252cc; color: white; border: 1px solid red; font-weight: 700;">
+                    Delete Account
+                </button>
+            </form>
+            
         </div>
         
     </div>

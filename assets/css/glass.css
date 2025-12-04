@@ -35,7 +35,7 @@ h1, h2, h3 {
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
     transition: 0.3s;
     /* Base center alignment for all glass cards */
-    margin: 120px auto; /* Default margin for desktop */
+    margin: 80px auto; 
     box-sizing: border-box; /* Crucial for responsive padding */
 }
 
@@ -141,22 +141,48 @@ input[type="password"] {
 }
 
 /* -------------------------------------------------------
-   NavBar
+    NavBar
 ------------------------------------------------------- */
+.navbar-wrapper {
+    width: 100%;
+    position: fixed; /* Keep the navbar at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.nav-glass {
+    /* Base styles for the glass card used in the navbar */
+    padding: 15px 30px; 
+    border-radius: 0 0 18px 18px; /* Rounded corners only on the bottom */
+    margin: 0 auto; /* Remove margin/keep centered */
+    display: flex; /* Use flex to align brand and links */
+    justify-content: space-between;
+    align-items: center;
+    width: 95%; /* Make it slightly narrower than full width on desktop */
+    max-width: 1200px;
+}
+
+.brand-logo {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
 .nav-links a {
     text-decoration: none;
     color: black;
     font-weight: 600;
-    margin: 0 10px;
+    margin: 0 15px; /* Increase spacing between links */
+    transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
     text-decoration: underline;
 }
 
-.nav-links:visited {
+/* Fix for visited links */
+.nav-links a:visited {
     color: black;
-    text-decoration: none;
 }
 
 /* -------------------------------------------------------
@@ -346,6 +372,12 @@ input[type="password"] {
         width: 90%; 
     }
 
+    .nav-glass {
+        width: 100%;
+        max-width: none;
+        border-radius: 0 0 10px 10px;
+    }
+
     /* Reduce default top margin, but keep card width relatively large */
     .glass {
         margin: 80px auto; /* Reduced top margin for better viewing */
@@ -378,6 +410,31 @@ input[type="password"] {
     .page-container { 
         width: 95%; /* Use more width on small screens */
         margin: 20px auto; /* Reduced margin */
+    }
+
+    /* 1. Stack the brand and the links vertically */
+    .nav-glass {
+        flex-direction: column;
+        padding: 15px 15px 10px; /* Adjust padding for stack */
+        border-radius: 0; /* No rounded corners on mobile */
+    }
+
+    /* 2. Style the navigation links for stacking */
+    .nav-links {
+        display: flex;
+        flex-direction: column; /* Stacks links vertically */
+        width: 100%; /* Links take full width below brand */
+        margin-top: 10px;
+        padding-top: 5px;
+        border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* 3. Style individual links */
+    .nav-links a {
+        display: block; /* Makes links full width */
+        margin: 5px 0; /* Add vertical padding */
+        text-align: center; /* Center the link text */
+        padding: 5px 0;
     }
 
     .glass { 
