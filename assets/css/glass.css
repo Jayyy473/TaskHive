@@ -202,71 +202,78 @@ h1, h2, h3 {
     margin-top: 20px;
 }
 
+/* TASK CARD MATCHING TIMELINE STYLE */
 .task-card {
     display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    padding: 18px;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    background: rgba(255, 255, 255, 0.18);
+    gap: 18px;
+    padding: 22px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(18px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.22);
     transition: 0.25s ease;
-    overflow: hidden;
-    word-break: normal;
+    cursor: pointer;
 }
 
 .task-card:hover {
     transform: scale(1.02);
-    background: rgba(255, 255, 255, 0.27);
+    background: rgba(255, 255, 255, 0.32);
 }
 
-/* PRIORITY BULLETS */
+/* PRIORITY BULLET — MATCHES TIMELINE */
 .priority-bullet {
     width: 18px;
     height: 18px;
     border-radius: 50%;
+    flex-shrink: 0;
     margin-top: 5px;
     box-shadow: 0 0 12px currentColor;
 }
 
-.priority-bullet.none { background: gray; }
 .priority-bullet.low { background: #8bc34a; }
 .priority-bullet.medium { background: #ffc107; }
 .priority-bullet.high { background: #ff5252; }
+.priority-bullet.none { background: #777; }
 
-/* CONTENT */
-.task-content h3 {
+/* CONTENT (MATCHES TIMELINE EXACTLY) */
+.task-content {
+    flex: 1;
     text-align: center;
+}
+
+.task-content h3 {
     margin: 0;
-    color: #000;
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
 }
 
 .task-content p {
-    text-align: center;
-    margin: 6px 0;
-    color: #000;
-    white-space: normal;        
-    overflow-wrap: anywhere;     
-    word-wrap: break-word;       
-    word-break: break-word;      
-    max-width: 100%;
+    margin: 8px 0;
+    font-size: 15px;
+    color: black;
+    white-space: normal;
+    overflow-wrap: break-word;
 }
 
-/* TAGS */
+/* TAGS — SAME AS TIMELINE */
+.tags {
+    margin-top: 6px;
+}
+
 .tag {
     display: inline-block;
-    padding: 4px 9px;
-    margin-right: 8px;
-    font-size: 12px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
+    padding: 5px 12px;
+    font-size: 13px;
+    border-radius: 12px;
     color: white;
+    margin-right: 8px;
+    backdrop-filter: blur(6px);
 }
 
 .priority-high { background: #ff5252cc; }
-.priority-medium { background: #ffc107cc; color: black; }
+.priority-medium { background: #ffc107cc; color:black; }
 .priority-low { background: #8bc34acc; }
 .priority-none { background: #777; }
 
@@ -274,24 +281,18 @@ h1, h2, h3 {
 .status-current { background: #2196f3cc; }
 .status-pending-start { background: #9e9e9ecc; }
 
-/* BUTTONS */
-
-/* Stack the action buttons vertically */
+/* ACTION BUTTONS — NOW VERTICAL AND MINIMAL */
 .task-actions {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    flex: 0 0 auto;
-    justify-content: flex-start;
-    align-items: flex-start;      /* keeps them aligned left */
+    justify-content: center;
 }
 
 .task-actions .btn {
-    align-items: right;
-    margin-left: 10px;
-    text-decoration: none;
+    padding: 8px 18px !important;
+    font-size: 14px;
 }
-
 
 /* -------------------------------------------------------
    RESPONSIVE RESPONSIVE RESPONSIVE
@@ -325,6 +326,7 @@ h1, h2, h3 {
 }
 
 @media (max-width: 480px) {
+    .page-container { width: 90%; margin: 20px auto; }
     .glass { padding: 18px; }
     
     .btn { padding: 10px 18px; }
