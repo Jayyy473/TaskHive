@@ -362,6 +362,12 @@ input[type="password"] {
         width: 70%;
         max-width: 350px;
     }
+
+    .glass.settings-card {
+        width: 60%; 
+        max-width: 400px;
+        margin: 60px auto;
+    }
 }
 
 
@@ -404,5 +410,18 @@ input[type="password"] {
         margin: 10px auto; /* Add vertical space between buttons */
         width: 80%; /* Make buttons full width relative to the card */
         max-width: 250px;
+    }
+
+    /* Settings Card Override for Mobile */
+    .glass.settings-card {
+        width: 90%; 
+        max-width: none; 
+        margin: 30px auto; /* Very small top margin */
+        padding: 25px 20px;
+    }
+    
+    /* Ensure input field fits well */
+    .settings-form input[type="text"] {
+        max-width: 100%; /* Allows input to stretch across the card */
     }
 }
