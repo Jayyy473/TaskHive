@@ -55,6 +55,16 @@ h1, h2, h3 {
     box-shadow: 0 16px 32px rgba(0,0,0,0.30);
 }
 
+/* -------------------------------------------------------
+    CALENDAR CARD
+------------------------------------------------------- */
+.glass.calendar-card {
+    /* Desktop/Tablet Styles */
+    width: 900px; /* Fixed max width for desktop calendar */
+    margin: 80px auto; /* Margin to clear the fixed navbar */
+    padding: 30px;
+}
+
 /* Base Form Inputs - Ensuring they take full width of the card */
 input[type="text"], 
 input[type="email"], 
@@ -336,6 +346,22 @@ input[type="password"] {
         gap: 10px;
         text-align: center;
     }
+
+    .glass.calendar-card {
+        width: 90%; /* Use 90% of the screen */
+        padding: 25px;
+    }
+
+    /* Switch to 7 columns*/
+    #calendar {
+        grid-template-columns: repeat(7, 1fr) !important; 
+        gap: 8px !important; 
+    }
+    
+    .day {
+        font-size: 14px !important;
+        padding: 15px 5px !important;
+    }
 }
 
 /* --- TABLET (MAX-WIDTH: 768px) --- */
@@ -368,6 +394,23 @@ input[type="password"] {
         max-width: 400px;
         margin: 60px auto;
     }
+
+    .glass.calendar-card {
+        width: 90%; /* Use 90% of the screen */
+        max-width: 700px;
+        padding: 25px;
+    }
+
+    /* Switch to 7 columns */
+    #calendar {
+        grid-template-columns: repeat(7, 1fr) !important; 
+        gap: 8px !important; 
+    }
+    
+    .day {
+        font-size: 14px !important;
+        padding: 15px 5px !important;
+    }
 }
 
 
@@ -381,8 +424,8 @@ input[type="password"] {
     }
 
     .glass { 
-        padding: 18px; /* Less padding to save space */
-        margin: 40px auto; /* Significantly reduced top margin for content visibility */
+        padding: 25px; 
+        margin: 20px auto; /* Significantly reduced top margin for content visibility */
     }
 
     /* The index page card (TaskHive landing) */
@@ -396,7 +439,7 @@ input[type="password"] {
     .glass.auth-card {
         width: 90%; /* Near full-width for mobile */
         max-width: none;
-        padding: 25px 20px;
+        padding: 25px;
     }
     
     /* Center the form elements more cleanly */
@@ -418,6 +461,22 @@ input[type="password"] {
         max-width: none; 
         margin: 30px auto; /* Very small top margin */
         padding: 25px 20px;
+    }
+
+    .glass.calendar-card {
+        width: 95%; 
+        max-width: none;
+        margin: 40px auto;
+        padding: 20px 15px; /* Reduced side padding for space */
+    }
+    
+    /* Make the navigation header buttons and text smaller */
+    .header h2 {
+        font-size: 1.2em;
+    }
+    .nav-btn {
+        padding: 6px 10px !important;
+        font-size: 12px !important;
     }
     
     /* Ensure input field fits well */
