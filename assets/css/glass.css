@@ -49,6 +49,7 @@ h1, h2, h3 {
 .glass.auth-card {
     width: 90%;
     height: 90%;
+    align-content: center;
 }
 
 .glass:hover {
