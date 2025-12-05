@@ -42,7 +42,7 @@ while ($row = mysqli_fetch_assoc($tasks)) {
         justify-content: center;
     }
     .day:hover {
-        background: rgba(167, 40, 40, 0.75);
+        background: rgba(75, 73, 73, 0.75);
     }
     .hasEvent {
         background: rgba(0,200,255,0.35);
@@ -70,7 +70,7 @@ while ($row = mysqli_fetch_assoc($tasks)) {
 
 <?php include "../components/navbar.php"; ?>
 
-<div class="glass calendar-card"> 
+<div class="glass calendar-card" style="margin:90px;"> 
     <div class="header">
         <button id="prev" class="nav-btn">◀ Prev</button>
         <h2 id="monthLabel"></h2>
