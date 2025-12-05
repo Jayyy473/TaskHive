@@ -43,6 +43,10 @@ h1, h2, h3 {
 .glass.main-page {
     width: 420px;
     text-align: center;
+    margin-top: 500px;
+    margin-right: 50px;
+    margin-left: 50px;
+
 }
 
 /* Specific styling for the login/register cards */
@@ -50,7 +54,7 @@ h1, h2, h3 {
     margin-top: 500px;
     margin-right: 50px;
     margin-left: 50px;
-    width: 80%;
+    width: 420px;
 }
 
 .glass:hover {
