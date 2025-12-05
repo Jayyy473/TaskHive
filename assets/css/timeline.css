@@ -6,6 +6,8 @@ body {
 .timeline-wrapper {
     width: 75%;
     max-width: 900px;
+    height: 90%;
+    max-height: 700px;
     margin: 40px auto;
     padding: 25px;
     border-radius: 25px;
@@ -14,7 +16,7 @@ body {
 
 .timeline-wrapper h2 {
     text-align: center;
-    color: #fff;
+    color: #000000;
     margin-bottom: 15px;
 }
 
