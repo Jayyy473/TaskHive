@@ -1,29 +1,36 @@
 /* -------------------------------------------------------
-   GLOBAL
+   GLOBAL & CENTERING
 ------------------------------------------------------- */
 body {
     background: url("../images/background.png") no-repeat center center fixed;
     background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
     padding: 0;
+
+    font-family: 'Poppins', sans-serif;
     color: #1a1a1a;
+    box-sizing: border-box;
 }
 
 h1, h2, h3 {
     font-weight: 700;
 }
 
-/* Page Wrapper */
+/* Page Wrapper - For non-centered content (like dashboard) */
 .page-container {
     width: 85%;
     max-width: 1100px;
-    margin: 40px auto;
 }
 
 
 /* -------------------------------------------------------
-   GLASS CARD
+   GLASS CARD BASE STYLES
 ------------------------------------------------------- */
 .glass {
     backdrop-filter: blur(22px) saturate(200%);
@@ -34,27 +41,7 @@ h1, h2, h3 {
     padding: 30px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
     transition: 0.3s;
-    /* Base center alignment for all glass cards */
-    margin: px 20px; /* Default margin for desktop */
-    box-sizing: border-box; /* Crucial for responsive padding */
-}
-
-/* Specific styling for the initial index.php card */
-.glass.main-page {
-    width: 420px;
-    text-align: center;
-    margin-top: 500px;
-    margin-right: 50px;
-    margin-left: 50px;
-
-}
-
-/* Specific styling for the login/register cards */
-.glass.auth-card {
-    margin-top: 500px;
-    margin-right: 50px;
-    margin-left: 50px;
-    width: 420px;
+    box-sizing: border-box;
 }
 
 .glass:hover {
@@ -62,21 +49,36 @@ h1, h2, h3 {
     box-shadow: 0 16px 32px rgba(0,0,0,0.30);
 }
 
-/* -------------------------------------------------------
-    CALENDAR CARD
-------------------------------------------------------- */
-.glass.calendar-card {
-    /* Desktop/Tablet Styles */
-    width: 900px; /* Fixed max width for desktop calendar */
+/* Centered Cards (Index, Login, Register) */
+.glass.landing-card {
+    width: 420px;
+    text-align: center;
+}
+
+.glass.auth-card {
+    width: 420px;
+}
+
+/* Non-Centered Cards (Calendar, Settings) */
+.glass.calendar-card,
+.glass.settings-card {
+    margin: 40px auto; 
+    width: 900px;
+    max-width: 90%; 
     height: auto;
-    margin: 80px auto; /* Margin to clear the fixed navbar */
     padding: 30px;
 }
 
-/* Base Form Inputs - Ensuring they take full width of the card */
+
+/* -------------------------------------------------------
+   FORM INPUTS
+------------------------------------------------------- */
 input[type="text"], 
 input[type="email"], 
-input[type="password"] {
+input[type="password"],
+.add-task-form input,
+.add-task-form select,
+.add-task-form textarea {
     width: 100%;
     padding: 12px;
     border-radius: 10px;
@@ -84,8 +86,23 @@ input[type="password"] {
     background: rgba(255,255,255,0.45);
     color: #000;
     font-size: 15px;
-    box-sizing: border-box; /* Makes padding part of the width */
+    box-sizing: border-box; 
+    margin-bottom: 10px;
 }
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(0,0,0,0.5);
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+}
+
+.add-task-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
 
 /* -------------------------------------------------------
    BUTTONS
@@ -107,10 +124,6 @@ input[type="password"] {
     text-decoration: none;
 }
 
-.btn.register {
-    align-items: right;
-}
-
 .btn:hover {
     background: rgba(255,255,255,0.45);
     box-shadow: 0 4px 14px rgba(0,0,0,0.2);
@@ -118,7 +131,7 @@ input[type="password"] {
 
 
 /* -------------------------------------------------------
-   FORM DESIGN
+   FORM DESIGN (add-task-form)
 ------------------------------------------------------- */
 .add-task-form {
     display: grid;
@@ -132,122 +145,16 @@ input[type="password"] {
     font-size: 15px;
 }
 
-.add-task-form input,
-.add-task-form select,
-.add-task-form textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.2);
-    background: rgba(255,255,255,0.45);
-    color: #000;
-    font-size: 15px;
-    box-sizing: border-box;
-}
-
-.add-task-form textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-.add-task-form input:focus,
-.add-task-form textarea:focus,
-.add-task-form select:focus {
-    outline: none;
-    border-color: rgba(0,0,0,0.5);
-    box-shadow: 0 0 8px rgba(0,0,0,0.25);
-}
 
 /* -------------------------------------------------------
-   NavBar
+   TASK CARD & LIST
 ------------------------------------------------------- */
-.nav-links a {
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-    margin: 0 10px;
-}
-
-.nav-links a:hover {
-    text-decoration: underline;
-}
-
-.nav-links:visited {
-    color: black;
-    text-decoration: none;
-}
-
-/* -------------------------------------------------------
-   TASK CARD
-------------------------------------------------------- */
-.task-card {
-    margin: 20px 0;
-    padding: 20px;
-    background: rgba(255,255,255,0.30);
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transition: 0.25s;
-}
-
-.task-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 26px rgba(0,0,0,0.25);
-}
-
-.task-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.task-title {
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.priority-tag {
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase;
-    color: white;
-}
-
-/* Buttons inside task card */
-.task-card .btn {
-    margin-right: 10px;
-}
-
-/* -------------------------------------------------------
-   EMPTY STATE
-------------------------------------------------------- */
-.empty-state {
-    text-align: center;
-    opacity: 0.85;
-}
-
-.empty-state img {
-    width: 260px;
-    margin-bottom: 15px;
-}
-
-/* -------------------------------------------------------
-   TASK LIST
-------------------------------------------------------- */
-.task-content {
-  flex: 1 1 auto;              
-  min-width: 0;               
-  overflow: hidden;           
-}
-
 .task-list {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
 }
 
-/* TASK CARD MATCHING TIMELINE STYLE */
 .task-card {
     display: flex;
     gap: 18px;
@@ -259,6 +166,7 @@ input[type="password"] {
     box-shadow: 0 10px 24px rgba(0,0,0,0.22);
     transition: 0.25s ease;
     cursor: pointer;
+    margin: 10px 0;
 }
 
 .task-card:hover {
@@ -266,7 +174,40 @@ input[type="password"] {
     background: rgba(255, 255, 255, 0.32);
 }
 
-/* PRIORITY BULLET — MATCHES TIMELINE */
+/* Content */
+.task-content {
+    flex: 1;
+    text-align: left;
+}
+
+.task-content h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.task-content p {
+    margin: 8px 0;
+    font-size: 15px;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+/* Actions */
+.task-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.task-actions .btn {
+    padding: 8px 18px !important;
+    font-size: 14px;
+}
+
+
+/* Task Priority/Tag Styling */
 .priority-bullet {
     width: 18px;
     height: 18px;
@@ -281,31 +222,7 @@ input[type="password"] {
 .priority-bullet.high { background: #ff5252; }
 .priority-bullet.none { background: #777; }
 
-/* CONTENT (MATCHES TIMELINE EXACTLY) */
-.task-content {
-    flex: 1;
-    text-align: center;
-}
-
-.task-content h3 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 700;
-    color: black;
-}
-
-.task-content p {
-    margin: 8px 0;
-    font-size: 15px;
-    color: black;
-    white-space: normal;
-    overflow-wrap: break-word;
-}
-
-/* TAGS — SAME AS TIMELINE */
-.tags {
-    margin-top: 6px;
-}
+.tags { margin-top: 6px; }
 
 .tag {
     display: inline-block;
@@ -318,7 +235,7 @@ input[type="password"] {
 }
 
 .priority-high { background: #ff5252cc; }
-.priority-medium { background: #ffc107cc; color:black; }
+.priority-medium { background: #ffc107cc; color: black; }
 .priority-low { background: #8bc34acc; }
 .priority-none { background: #777; }
 
@@ -326,169 +243,72 @@ input[type="password"] {
 .status-current { background: #2196f3cc; }
 .status-pending-start { background: #9e9e9ecc; }
 
-/* ACTION BUTTONS — NOW VERTICAL AND MINIMAL */
-.task-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
+.empty-state {
+    text-align: center;
+    opacity: 0.85;
 }
 
-.task-actions .btn {
-    padding: 8px 18px !important;
-    font-size: 14px;
+.empty-state img {
+    width: 260px;
+    margin-bottom: 15px;
 }
+
 
 /* -------------------------------------------------------
-   RESPONSIVE RESPONSIVE RESPONSIVE
+   RESPONSIVE
 ------------------------------------------------------- */
-@media (min-width: 769px) {
-    .page-container { width: 95%; }
-
-    .add-task-form {
-        grid-template-columns: 1fr;
-    }
-
-    .task-header {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    .glass.calendar-card {
-        width: 90%; /* Use 90% of the screen */
-        padding: 25px;
-    }
-
-    /* Switch to 7 columns*/
-    #calendar {
-        grid-template-columns: repeat(7, 1fr) !important; 
-        gap: 8px !important; 
-    }
-    
-    .day {
-        font-size: 14px !important;
-        padding: 15px 5px !important;
-    }
-}
-
-/* --- TABLET (MAX-WIDTH: 768px) --- */
 @media (max-width: 768px) {
-    /* Use for tablets and large phones in landscape */
-
-    .page-container { 
-        width: 90%; 
+    .page-container {
+        width: 95%;
     }
 
-    /* Reduce default top margin, but keep card width relatively large */
-    .glass {
-        margin: 80px auto; /* Reduced top margin for better viewing */
-    }
-
-    /* Make authentication cards slightly narrower but responsive */
+    .glass.landing-card,
     .glass.auth-card {
-        width: 80%; /* Takes up 80% of the viewport width */
-        max-width: 400px; /* But doesn't get too wide on landscape tablets */
-    }
-
-    /* The index page card */
-    .glass.main-page {
-        width: 70%;
-        max-width: 350px;
-    }
-
-    .glass.settings-card {
-        width: 60%; 
+        width: 85%; 
         max-width: 400px;
+    }
+
+    .glass.calendar-card,
+    .glass.settings-card {
+        width: 95%; 
+        max-width: 600px;
+        padding: 25px;
         margin: 60px auto;
     }
 
-    .glass.calendar-card {
-        width: 90%; /* Use 90% of the screen */
-        max-width: 700px;
-        padding: 25px;
-    }
-
-    /* Switch to 7 columns */
     #calendar {
         grid-template-columns: repeat(7, 1fr) !important; 
         gap: 8px !important; 
     }
-    
+
     .day {
         font-size: 14px !important;
         padding: 15px 5px !important;
     }
 }
 
-
-/* --- MOBILE (MAX-WIDTH: 480px) --- */
 @media (max-width: 480px) {
-    /* Use for phones */
-
-    .page-container { 
-        width: 95%; /* Use more width on small screens */
-        margin: 20px auto; /* Reduced margin */
-    }
-
     .glass { 
-        padding: 25px; 
-        margin: 20px auto; /* Significantly reduced top margin for content visibility */
+        padding: 20px; 
     }
 
-    /* The index page card (TaskHive landing) */
-    .glass.main-page {
-        width: 90%; /* Near full-width for mobile */
-        max-width: none; /* Remove the max-width restriction for small screens */
-        padding-bottom: 25px; /* Add bottom spacing */
-    }
-
-    /* Authentication cards (Login/Register) */
+    .glass.landing-card,
     .glass.auth-card {
-        width: 90%; /* Near full-width for mobile */
-        max-width: none;
-        padding: 25px;
-    }
-    
-    /* Center the form elements more cleanly */
-    .glass.auth-card > div {
-        padding: 0;
-    }
-
-    /* Style for the buttons on the landing page to stack nicely */
-    .glass.main-page a {
-        display: block; /* Make the anchor tags block-level */
-        margin: 10px auto; /* Add vertical space between buttons */
-        width: 80%; /* Make buttons full width relative to the card */
-        max-width: 250px;
-    }
-
-    /* Settings Card Override for Mobile */
-    .glass.settings-card {
         width: 90%; 
-        max-width: none; 
-        margin: 30px auto; /* Very small top margin */
-        padding: 25px 20px;
+        max-width: none;
     }
 
-    .glass.calendar-card {
+    .glass.landing-card a {
+        display: block; 
+        margin: 10px auto; 
+        width: 100%;
+    }
+
+    .glass.calendar-card,
+    .glass.settings-card {
         width: 95%; 
         max-width: none;
-        margin: 40px auto;
-        padding: 20px 15px; /* Reduced side padding for space */
-    }
-    
-    /* Make the navigation header buttons and text smaller */
-    .header h2 {
-        font-size: 1.2em;
-    }
-    .nav-btn {
-        padding: 6px 10px !important;
-        font-size: 12px !important;
-    }
-    
-    /* Ensure input field fits well */
-    .settings-form input[type="text"] {
-        max-width: 100%; /* Allows input to stretch across the card */
+        margin: 20px auto;
+        padding: 20px 15px;
     }
 }
