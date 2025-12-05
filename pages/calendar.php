@@ -15,6 +15,56 @@ while ($row = mysqli_fetch_assoc($tasks)) {
 <head>
     <title>Calendar | TaskHive</title>
     <link rel="stylesheet" href="../assets/css/glass.css">
+    <style>
+    #calendar {
+        /* Default for mobile: 4 columns */
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Changed from 7 to 4 columns for mobile */
+        gap: 12px; /* Reduced gap for mobile density */
+        margin-top: 20px;
+    }
+    .day {
+        /* Reduced padding for mobile density */
+        padding: 15px 5px; 
+        border-radius: 15px; /* Slightly reduced radius */
+        backdrop-filter: blur(12px);
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.2);
+        cursor: pointer;
+        transition: .3s;
+        text-align:center;
+        font-size: 16px; /* Reduced font size */
+        font-weight: 600; /* Added weight for readability */
+        aspect-ratio: 1 / 1; /* Makes the box square, improving presentation */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .day:hover {
+        background: rgba(75, 73, 73, 0.75);
+    }
+    .hasEvent {
+        background: rgba(0,200,255,0.35);
+        border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px; /* Added spacing */
+    }
+    .nav-btn {
+        padding: 8px 16px; /* Reduced padding */
+        cursor: pointer;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.2);
+        border: 1px solid rgba(255,255,255,0.3);
+        backdrop-filter: blur(10px);
+        font-size: 14px;
+        font-weight: 600;
+    }
+</style>
 </head>
 <body>
 
