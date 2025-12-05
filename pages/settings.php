@@ -19,7 +19,7 @@ if (!isset($_SESSION['userID'])) {
 <?php include "../components/navbar.php"; ?>
 
 <div class="glass settings-card">
-    <div class="settings-content"> 
+    <div class="settings-content" style="text-align:center"> 
         
         <h2>Settings</h2>
 
@@ -65,9 +65,6 @@ if (!isset($_SESSION['userID'])) {
             
             <form action="../actions/update_profile.php" method="POST" onsubmit="return confirm('Are you absolutely sure you want to delete your account? This action cannot be undone.');">
                 <input type="hidden" name="action" value="delete_account">
-                <button class="btn" type="submit" style="background: #ff5252cc; color: white; border: 1px solid red; font-weight: 700;">
-                    Delete Account
-                </button>
             </form>
             
             <button class="btn" style="background: #ff5252cc; color: white; border: 1px solid red; font-weight: 700;">

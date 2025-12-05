@@ -116,8 +116,6 @@ elseif ($action === 'update_password') {
 // ACTION 3: DELETE ACCOUNT
 // -----------------------------------------------------
 elseif ($action === 'delete_account') {
-    // 1. You should normally require the user's password here for security,
-    //    but for simplicity, we will skip that and rely on the logout.
     
     // Perform the deletion in the database
     $stmt_delete = mysqli_prepare($conn, "DELETE FROM Users WHERE userID = ?");

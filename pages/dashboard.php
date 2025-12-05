@@ -60,7 +60,7 @@ $tasks = mysqli_query($conn, $query);
 
 <?php include "../components/navbar.php"; ?>
 
-<div class="glass" style="width:80%;margin:30px auto;padding:20px;">
+<div class="glass" style="width:85%;margin:30px auto;padding:20px;">
     <h2>Hello, <?= $_SESSION['username'] ?> 👋</h2>
     <h3>Your Tasks</h3>
 
@@ -100,7 +100,7 @@ $tasks = mysqli_query($conn, $query);
     <hr>
 
     <!-- SORT DROPDOWN -->
-    <form method="GET" style="text-align:center; margin-bottom:20px;">
+    <form method="GET" style="text-align:center; margin-bottom:10px;">
         <select name="sort" onchange="this.form.submit()" 
             style="padding:10px; border-radius:10px; backdrop-filter:blur(15px); background-color: rgba(255, 255, 255, 0.3);">
             <option value="">Sort Tasks</option>
@@ -133,7 +133,7 @@ $tasks = mysqli_query($conn, $query);
     <div class="task-list">
     <?php while ($row = mysqli_fetch_assoc($tasks)): ?>
         
-        <div class="task-card glass">
+        <div class="task-card glass" style="margin-top: 20px; margin-bottom: 20px;">
 
             <!-- PRIORITY BULLET -->
             <div class="priority-bullet <?= strtolower($row['priority']); ?>"></div>
