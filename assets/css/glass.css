@@ -287,6 +287,20 @@ select:focus {
 /* -------------------------------------------------------
    RESPONSIVE
 ------------------------------------------------------- */
+@media (min-width: 769px) {
+   #calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr); /* Changed from 4 to 7 columns for desktop */
+    }
+    .day {
+        padding: 20px 10px; 
+        font-size: 20px; 
+    }
+    .nav-btn {
+        padding: 12px 20px; 
+    }
+}
+
 @media (max-width: 768px) {
     .page-container {
         width: 95%;

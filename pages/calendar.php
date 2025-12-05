@@ -42,11 +42,11 @@ while ($row = mysqli_fetch_assoc($tasks)) {
         justify-content: center;
     }
     .day:hover {
-        background: rgba(255,255,255,0.25);
+        background: rgba(167, 40, 40, 0.75);
     }
     .hasEvent {
         background: rgba(0,200,255,0.35);
-        border: 1px solid rgba(0,200,255,0.5);
+        border: 1px solid rgba(0, 0, 0, 0.5);
     }
     .header {
         display: flex;
