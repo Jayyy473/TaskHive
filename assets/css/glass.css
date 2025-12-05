@@ -47,9 +47,10 @@ h1, h2, h3 {
 
 /* Specific styling for the login/register cards */
 .glass.auth-card {
-    width: 90%;
-    height: 90%;
-    align-content: center;
+    margin-top: 500px;
+    margin-right: 50px;
+    margin-left: 50px;
+    width: 80%;
 }
 
 .glass:hover {
