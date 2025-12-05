@@ -35,7 +35,7 @@ h1, h2, h3 {
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
     transition: 0.3s;
     /* Base center alignment for all glass cards */
-    margin: 120px auto; /* Default margin for desktop */
+    margin: px 20px; /* Default margin for desktop */
     box-sizing: border-box; /* Crucial for responsive padding */
 }
 
@@ -47,7 +47,8 @@ h1, h2, h3 {
 
 /* Specific styling for the login/register cards */
 .glass.auth-card {
-    width: 450px;
+    width: 90%;
+    height: 90%;
 }
 
 .glass:hover {
@@ -61,6 +62,7 @@ h1, h2, h3 {
 .glass.calendar-card {
     /* Desktop/Tablet Styles */
     width: 900px; /* Fixed max width for desktop calendar */
+    height: auto;
     margin: 80px auto; /* Margin to clear the fixed navbar */
     padding: 30px;
 }

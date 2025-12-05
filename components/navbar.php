@@ -1,7 +1,7 @@
 <?php if (!isset($_SESSION)) { session_start(); } ?>
 <link rel="stylesheet" href="../assets/css/glass.css">
 
-<div class="glass" style="padding:15px;display:flex;justify-content:space-between;">
+<div class="glass" style="margin:0px; padding:30px;display:flex;justify-content:space-between;">
     <strong>🐝 TaskHive</strong>
 
     <nav class ="nav-links">
