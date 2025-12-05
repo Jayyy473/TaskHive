@@ -67,6 +67,9 @@ if (!isset($_SESSION['userID'])) {
                 <input type="hidden" name="action" value="delete_account">
             </form>
             
+            <button class="btn" style="background: #ff5252cc; color: white; border: 1px solid red; font-weight: 700;">
+                Delete Account
+            </button>
         </div>
         
     </div>
