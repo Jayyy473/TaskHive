@@ -60,7 +60,7 @@ $tasks = mysqli_query($conn, $query);
 
 <?php include "../components/navbar.php"; ?>
 
-<div class="glass" style="width:85%;margin:30px auto;padding:20px;">
+<div class="glass" style="width:85%;margin:100px auto;padding:20px;">
     <h2>Hello, <?= $_SESSION['username'] ?> 👋</h2>
     <h3>Your Tasks</h3>
 

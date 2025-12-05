@@ -144,6 +144,21 @@ select:focus {
     box-shadow: 0 4px 14px rgba(0,0,0,0.2);
 }
 
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.nav-links a:visited {
+    color: black;
+    text-decoration: none;
+}
 
 /* -------------------------------------------------------
    FORM DESIGN (add-task-form)
