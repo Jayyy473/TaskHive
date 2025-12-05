@@ -287,11 +287,11 @@ select:focus {
 /* -------------------------------------------------------
    RESPONSIVE
 ------------------------------------------------------- */
-@media screen and (min-width: 769px) {
+@media (min-width: 769px) {
    #calendar {
-        display: grid;
         grid-template-columns: repeat(7, 1fr); /* Changed from 4 to 7 columns for desktop */
     }
+
     .day {
         padding: 20px 10px; 
         font-size: 20px; 
@@ -301,7 +301,7 @@ select:focus {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .page-container {
         width: 95%;
     }
@@ -331,7 +331,7 @@ select:focus {
     }
 }
 
-@media screen and (max-width: 480px) {
+@media (max-width: 480px) {
     .glass { 
         padding: 20px; 
     }
@@ -348,59 +348,25 @@ select:focus {
         width: 100%;
     }
 
-    .glass.calendar-card,
     .glass.settings-card {
         width: 95%; 
         max-width: none;
         margin: 20px auto;
         padding: 20px 15px;
     }
-     #calendar {
-        /* Default for mobile: 4 columns */
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Changed from 7 to 4 columns for mobile */
-        gap: 12px; /* Reduced gap for mobile density */
-        margin-top: 20px;
+
+    .calendar-page .glass.navbar {
+        padding: 80px;
     }
-    .day {
-        /* Reduced padding for mobile density */
-        padding: 15px 5px; 
-        border-radius: 15px; /* Slightly reduced radius */
-        backdrop-filter: blur(12px);
-        background: rgba(255,255,255,0.12);
-        border: 1px solid rgba(255,255,255,0.2);
-        cursor: pointer;
-        transition: .3s;
-        text-align:center;
-        font-size: 16px; /* Reduced font size */
-        font-weight: 600; /* Added weight for readability */
-        aspect-ratio: 1 / 1; /* Makes the box square, improving presentation */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+
+    .glass.calendar-card {
+        margin: 120px auto; 
+        width: 95%; 
+        max-width: none;
+        padding: 20px 15px;
     }
-    .day:hover {
-        background: rgba(75, 73, 73, 0.75);
-    }
-    .hasEvent {
-        background: rgba(0,200,255,0.35);
-        border: 1px solid rgba(0, 0, 0, 0.5);
-    }
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px; /* Added spacing */
-    }
-    .nav-btn {
-        padding: 8px 16px; /* Reduced padding */
-        cursor: pointer;
-        border-radius: 12px;
-        background: rgba(255,255,255,0.2);
-        border: 1px solid rgba(255,255,255,0.3);
-        backdrop-filter: blur(10px);
-        font-size: 14px;
-        font-weight: 600;
+
+    .calendar {
+        grid-template-columns: repeat(4, 1fr);
     }
 }

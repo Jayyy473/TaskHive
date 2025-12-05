@@ -42,7 +42,7 @@ while ($row = mysqli_fetch_assoc($tasks)) {
         justify-content: center;
     }
     .day:hover {
-        background: rgba(75, 73, 73, 0.75);
+        background: rgba(0, 47, 255, 0.75);
     }
     .hasEvent {
         background: rgba(0,200,255,0.35);
@@ -66,7 +66,7 @@ while ($row = mysqli_fetch_assoc($tasks)) {
     }
 </style>
 </head>
-<body>
+<body class="calendar-page">
 
 <?php include "../components/navbar.php"; ?>
 
