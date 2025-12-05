@@ -17,10 +17,9 @@ while ($row = mysqli_fetch_assoc($tasks)) {
     <link rel="stylesheet" href="../assets/css/glass.css">
     <style>
     #calendar {
-        /* Default for mobile: 4 columns */
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Changed from 7 to 4 columns for mobile */
+        grid-template-columns: repeat(7, 1fr);
         gap: 12px; /* Reduced gap for mobile density */
         margin-top: 20px;
     }
@@ -66,7 +65,7 @@ while ($row = mysqli_fetch_assoc($tasks)) {
     }
 </style>
 </head>
-<body class="calendar-page">
+<body>
 
 <?php include "../components/navbar.php"; ?>
 
@@ -77,7 +76,7 @@ while ($row = mysqli_fetch_assoc($tasks)) {
         <button id="next" class="nav-btn">Next ▶</button>
     </div>
 
-    <div id="calendar"></div>
+    <div id="calendar" style=""></div>
 </div>
 
 <script>

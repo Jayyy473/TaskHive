@@ -287,20 +287,6 @@ select:focus {
 /* -------------------------------------------------------
    RESPONSIVE
 ------------------------------------------------------- */
-@media (min-width: 769px) {
-   #calendar {
-        grid-template-columns: repeat(7, 1fr); /* Changed from 4 to 7 columns for desktop */
-    }
-
-    .day {
-        padding: 20px 10px; 
-        font-size: 20px; 
-    }
-    .nav-btn {
-        padding: 12px 20px; 
-    }
-}
-
 @media (max-width: 768px) {
     .page-container {
         width: 95%;
@@ -319,12 +305,6 @@ select:focus {
         padding: 25px;
         margin: 60px auto;
     }
-
-    #calendar {
-        grid-template-columns: repeat(7, 1fr) !important; 
-        gap: 8px !important; 
-    }
-
     .day {
         font-size: 14px !important;
         padding: 15px 5px !important;
@@ -348,25 +328,11 @@ select:focus {
         width: 100%;
     }
 
+    .glass.calendar-card,
     .glass.settings-card {
         width: 95%; 
         max-width: none;
         margin: 20px auto;
         padding: 20px 15px;
-    }
-
-    .calendar-page .glass.navbar {
-        padding: 80px;
-    }
-
-    .glass.calendar-card {
-        margin: 120px auto; 
-        width: 95%; 
-        max-width: none;
-        padding: 20px 15px;
-    }
-
-    .calendar {
-        grid-template-columns: repeat(4, 1fr);
     }
 }

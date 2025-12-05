@@ -27,7 +27,7 @@ $result = $query->get_result();
 <?php include "../components/navbar.php"; ?>
 
 <div class="timeline-wrapper glass">
-    <div style="color:black;">
+    <div>
     <h2>Tasks for <span><?= htmlspecialchars($date); ?></span></h2>
     </div>
     <a href="calendar.php" class="back-btn">← Back to Calendar</a>
