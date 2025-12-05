@@ -18,7 +18,7 @@ if (!isset($_SESSION['userID'])) {
 
 <?php include "../components/navbar.php"; ?>
 
-<div class="glass settings-card">
+<div class="glass settings-card" style="margin-top:30px; margin-left:30px; margin-right:30px;">
     <div class="settings-content" style="text-align:center"> 
         
         <h2>Settings</h2>
