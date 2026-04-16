@@ -9,7 +9,7 @@
 
 <div class="glass auth-card">
     <div style="text-align:center;">
-    <h2>Welcome Back 👋</h2>
+    <h2>Welcome Back</h2>
 
     <?php if (isset($_GET['success'])): ?>
         <p style="color:lightgreen;">Account created successfully!</p>
